@@ -11,7 +11,6 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "@walletconnect/web3-provider": "^1.7.8",
     "axios": "^1.13.2",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^2.4.3",
@@ -24,6 +23,7 @@
     "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "cross-env": "^10.1.0",
     "dotenv": "^16.6.1",
     "ethers": "^5.6.9",
     "express": "^4.22.1",
@@ -54,7 +54,6 @@
     "react-scripts": "5.0.1",
     "react-share": "^5.2.2",
     "reactstrap": "^9.1.1",
-    "request": "^2.88.2",
     "sqlite3": "^5.1.7",
     "three": "^0.176.0",
     "uuid": "^13.0.0",
@@ -64,7 +63,7 @@
     "winston": "^3.19.0"
   },
   "scripts": {
-    "start": "concurrently \"node backend/index.js\" \"react-app-rewired start\"",
+    "start": "concurrently \"node backend/index.js\" \"cross-env NODE_OPTIONS=--openssl-legacy-provider react-app-rewired start\"",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
