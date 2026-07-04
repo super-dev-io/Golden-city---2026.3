@@ -1,0 +1,586 @@
+/* CSS Variables - matching MetaMask extension design tokens exactly */
+:root {
+  --color-border-default: #d6d9dc; /* Exact border color from extension */
+  --color-text-alternative: #6a737d; /* Exact placeholder color */
+  --color-text-default: #121314; /* Exact text color */
+  --color-primary-default: #4459ff; /* Exact primary blue */
+  --color-primary-alternative: #4459ff; 
+  --color-icon-default: #121314; /* Exact button background */
+  --color-icon-inverse: #ffffff; /* Exact button text color */
+  --font-family-default: 'Geist', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Modal Content */
+/* Matches MetaMask extension popup dimensions: 400px width, 600px height, no border-radius */
+.metamask-modal-content {
+  background: #ffffff; /* White background */
+  border-radius: 0; /* No border-radius to match extension */
+  width: 400px; /* Fixed width matching popup.html */
+  height: 600px; /* Fixed height matching popup.html */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Clip content to show only ears of fox */
+}
+
+/* Title Bar - matches MetaMask extension header */
+.metamask-modal__title-bar {
+  background: #f7f8f9; /* Light grey background matching extension */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  height: 32px; /* Reduced from 40px */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  flex-shrink: 0;
+  -webkit-app-region: drag; /* Allows dragging window on desktop */
+  user-select: none;
+}
+
+.metamask-modal__title-bar-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metamask-modal__title-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  -webkit-app-region: no-drag; /* Make interactive elements draggable */
+}
+
+.metamask-modal__title-bar-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.metamask-modal__title-bar-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #121314;
+  font-family: var(--font-family-default, 'Geist', 'Helvetica', 'Arial', sans-serif);
+  line-height: 1.2;
+}
+
+.metamask-modal__title-bar-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Increased spacing between icons for better separation */
+  -webkit-app-region: no-drag; /* Make buttons clickable */
+}
+
+.metamask-modal__title-bar-button {
+  background: transparent;
+  border: none;
+  width: 28px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #6a737d;
+  padding: 0;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  /* Ensure consistent sizing for all buttons */
+  min-width: 28px;
+  min-height: 24px;
+  max-width: 28px;
+  max-height: 24px;
+}
+
+.metamask-modal__title-bar-button:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #121314;
+}
+
+.metamask-modal__title-bar-button:active {
+  background: rgba(0, 0, 0, 0.12);
+  transform: scale(0.95);
+}
+
+.metamask-modal__title-bar-button svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+  flex-shrink: 0;
+  stroke-width: 1.5;
+  /* Ensure consistent sizing for all icons */
+  min-width: 12px;
+  min-height: 12px;
+  max-width: 12px;
+  max-height: 12px;
+}
+
+.metamask-modal__title-bar-close svg {
+  width: 13px;
+  height: 13px;
+  min-width: 13px;
+  min-height: 13px;
+  max-width: 13px;
+  max-height: 13px;
+}
+
+/* Close button now uses same hover/active styles as other buttons */
+
+/* Loading Screen - matches extension's initial loading screen */
+.metamask-login-modal__loading-screen {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff; /* White background for loading screen */
+  overflow: hidden;
+}
+
+.metamask-login-modal__loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.metamask-login-modal__loading-logo {
+  width: 160px; /* Matches extension loading logo size */
+  height: 160px;
+  margin-bottom: 1rem;
+}
+
+.metamask-login-modal__loading-spinner {
+  width: 2rem; /* 32px - matches extension spinner size */
+  height: 2rem;
+  align-self: center;
+}
+
+/* Login Modal Container - this is the form */
+/* Matches unlock-page form: padding={4} = 16px */
+.metamask-login-modal {
+  /* padding: 16px; */
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.metamask-login-modal__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+/* Logo Container - matches unlock-page__mascot-container */
+/* For popup: marginBottom={0} when isPopup (no beta/flask) */
+.metamask-login-modal__mascot-container {
+  /* position: relative; */
+  height: 180px;
+  margin-bottom: 0; /* Matches popup: no margin when not beta/flask */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Horizontal Logo - matches unlock-page__mascot-container__horizontal-logo */
+/* Using PNG image: images/logo/light-logo.png */
+.metamask-login-modal__horizontal-logo {
+  /* margin-bottom: 48px; */
+  width: 180px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain; /* Ensure image scales properly */
+  filter: brightness(0); /* Make logo black to match extension */
+}
+
+/* Popup variant - matches unlock-page__mascot-container__horizontal-logo--popup */
+.unlock-page__mascot-container__horizontal-logo--popup {
+  /* margin-bottom: 48px; */
+  
+  /* For popup, margin-bottom is 0 on small screens */
+  /* @media (max-width: 768px) {
+    margin-bottom: 0;
+  } */
+}
+
+/* Input Container */
+/* Wrapper is transparent to show modal background, input is also transparent */
+/* Matches: mm-text-field with borderWidth={1} exactly */
+.metamask-login-modal__input-container {
+  width: 100%;
+  background-color: transparent; /* Transparent to show modal background (white) */
+  border-radius: 8px; /* BorderRadius.LG */
+  border-width: 1px; /* Exact: 1px width, matches borderWidth={1} */
+  border-style: solid; /* Explicit solid style - makes border more solid */
+  border-color: #b7bbc8; /* Default border color (gray) */
+  color: #121314; /* Set text color so currentColor works */
+  display: flex;
+  align-items: center;
+  height: 48px; /* FormTextFieldSize.Lg = 48px */
+  /* margin-bottom: 16px; */
+  transition: border-color 0.2s ease;
+  box-sizing: border-box; /* Ensure border is included in height calculation */
+}
+
+/* Error state - red border when error is shown */
+.metamask-login-modal__input-container--error {
+  border-color: #ca3542 !important; /* Red border for error state */
+}
+
+/* When focused, border uses currentColor (text color) - matches extension exactly */
+/* Extension adds outline which makes border appear thicker */
+.metamask-login-modal__input-container:focus-within {
+  border-color: currentColor; /* Uses current text color (black) when focused - exact match */
+  border-width: 1px; /* Keep 1px border */
+  border-style: solid; /* Ensure solid border style */
+  outline: 5px auto Highlight; /* Firefox - matches mm-text-field--focused */
+  outline: 5px auto -webkit-focus-ring-color; /* Chrome - matches mm-text-field--focused */
+}
+
+/* Error state takes priority even when focused */
+.metamask-login-modal__input-container--error:focus-within {
+  border-color: #ca3542 !important; /* Keep red border even when focused */
+}
+
+.metamask-login-modal__input-container:focus-within .metamask-login-modal__input {
+  outline: none; /* No outline on input, focus handled by container border */
+  box-shadow: none;
+}
+
+/* Input field - matches FormTextFieldSize.Lg exactly */
+/* Matches: mm-text-field--size-lg and inputRoot styles */
+/* Input itself has transparent background, background comes from wrapper */
+.metamask-login-modal__input {
+  width: 100%;
+  padding: 0 16px; /* padding 0 16px for large input */
+  font-size: 1rem; /* 14px - matches inputRoot fontSize */
+  line-height: 1.5;
+  border: none; /* Border handled by container */
+  border-radius: 8px; /* BorderRadius.LG */
+  background-color: transparent; /* Input is transparent, background from wrapper */
+  color: #121314; /* textDefault */
+  font-family: var(--font-family-default, 'Geist', 'Helvetica', 'Arial', sans-serif); /* Matches extension */
+  font-weight: 400;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  flex-grow: 1; /* Fill container */
+  outline: none; /* Remove default outline */
+}
+
+.metamask-login-modal__input:focus {
+  outline: none; /* Ensure no outline on focus */
+}
+
+.metamask-login-modal__input:focus-visible {
+  outline: none; /* Remove focus-visible outline */
+}
+
+.metamask-login-modal__input::placeholder {
+  color: #888A89;; /* text-alternative - exact match, no fallback */
+  opacity: 1; /* Ensure full opacity for placeholder */
+  font-weight: 500;
+}
+
+.metamask-login-modal__input:disabled {
+  opacity: 0.5; /* Matches mm-text-field--disabled */
+  cursor: not-allowed;
+  border-color: #b7bbc8;
+}
+
+/* Error message */
+.metamask-login-modal__error {
+  color: #ca3542;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+/* Button Container */
+.metamask-login-modal__button-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px; /* marginBottom={6} = 24px in design system */
+}
+
+/* Button - matches ButtonSize.Lg with ButtonVariant.Primary exactly */
+/* Matches: mm-button-base--size-lg and mm-button-primary */
+.metamask-login-modal__unlock-button {
+  width: 100%;
+  height: 48px; /* ButtonSize.Lg = 48px */
+  padding: 0 16px; /* paddingLeft={4} paddingRight={4} = 16px */
+  font-size: 1rem; /* bodyMdMedium = 16px (large screen) / 14px (small screen) */
+  font-weight: 500; /* Medium - matches bodyMdMedium */
+  color: var(--color-icon-inverse, #ffffff); /* icon-inverse */
+  background-color: #121314; /* icon-default - dark gray/black */
+  border: none;
+  border-radius: 12px; /* BorderRadius.XL = 12px */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: var(--font-family-default, 'Geist', 'Helvetica', 'Arial', sans-serif); /* Matches extension */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  vertical-align: middle;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.metamask-login-modal__unlock-button:hover:not(:disabled) {
+  color: var(--color-icon-inverse, #ffffff);
+  background-color: var(--color-icon-default-hover, #1a1d21); /* icon-default-hover */
+  opacity: 0.8;
+}
+
+.metamask-login-modal__unlock-button:active:not(:disabled) {
+  color: var(--color-icon-inverse, #ffffff);
+  background-color: var(--color-icon-default-pressed, #1a1d21); /* icon-default-pressed */
+  transform: scale(0.98);
+}
+
+.metamask-login-modal__unlock-button:focus-visible {
+  outline: 2px solid #4459ff;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+.metamask-login-modal__unlock-button:disabled {
+  opacity: var(--opacity-disabled, 0.5); /* Matches mm-button-base--disabled */
+  cursor: not-allowed;
+}
+
+.metamask-login-modal__unlock-button:disabled:active {
+  background-color: var(--color-icon-default, #24272a);
+}
+
+/* Spinner Overlay */
+.metamask-login-modal__spinner-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.metamask-login-modal__spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Forgot Password - ButtonVariant.Link, bodyMdMedium = 16px */
+.metamask-login-modal__forgot-password {
+  background: none;
+  border: none;
+  color: #4459ff; /* Blue primary color */
+  font-size: 1rem; /* bodyMdMedium = 16px */
+  line-height: 1.5;
+  cursor: pointer;
+  padding: 0; /* ButtonLink has padding: 0 */
+  margin: 0 0 16px 0; /* marginBottom={4} = 16px */
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-weight: 500; /* Medium */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.metamask-login-modal__forgot-password:hover {
+  color: #4459ff; /* Matches mm-button-link hover */
+  text-decoration: underline; /* Underline on hover - matches extension */
+  text-decoration-thickness: 2px; /* Matches mm-button-link */
+  text-underline-offset: 5px; /* Matches mm-button-link */
+}
+
+.metamask-login-modal__forgot-password:active {
+  color: var(--color-primary-alternative, #4459ff);
+}
+
+/* Help Text - TextVariant.bodyMd = 16px */
+.metamask-login-modal__help-text {
+  font-size: 1rem; /* bodyMd = 16px */
+  line-height: 1.5;
+  color: #121314; /* textDefault - black for "Need help? Contact" */
+  text-align: center;
+  margin: 0; /* No margin specified in extension */
+  font-weight: 400;
+}
+
+.metamask-login-modal__support-link {
+  color: #4459ff; /* Blue primary color for "MetaMask support" */
+  text-decoration: none;
+  font-size: 1rem; /* bodyMd = 16px */
+  line-height: 1.5;
+  transition: color 0.2s ease;
+  font-weight: 500; /* Medium - ButtonLink uses bodyMdMedium */
+  display: inline-flex;
+  align-items: center;
+  padding: 0; /* ButtonLink padding */
+}
+
+.metamask-login-modal__support-link:hover {
+  color: #4459ff; /* Matches mm-button-link hover */
+  text-decoration: underline; /* Underline on hover - matches extension */
+  text-decoration-thickness: 2px; /* Matches mm-button-link */
+  text-underline-offset: 5px; /* Matches mm-button-link */
+}
+
+.metamask-login-modal__support-link:active {
+  color: var(--color-primary-alternative, #4459ff);
+}
+
+/* Fox Graphic - positioned at bottom of modal content, matching MetaMask extension */
+/* Only the top part (ears) of the fox should be visible, rest is hidden below */
+/* Matches riv-animation__fox-container from welcome/index.scss */
+.metamask-modal-content > .metamask-login-modal__fox-graphic {
+  position: absolute;
+  bottom: -70px; /* Position at bottom, extending 70px below modal */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 300px;
+  width: 400px;
+  max-width: 400px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Rive animation canvas - matches riv-animation__canvas */
+/* Canvas fills container and scales fox to match MetaMask extension exactly */
+.riv-animation__canvas {
+  height: 100%;
+  width: 100%;
+  /* Ensure canvas renders at exact size to match extension */
+  display: block;
+}
+
+.riv-animation__spinner {
+  width: 2rem;
+  height: 2rem;
+  align-self: center;
+  margin-top: -130px;
+}
+
+.metamask-login-modal__fox-image {
+  /* Container is 300px tall, extends 70px below modal */
+  /* Modal clips bottom 70px, so visible area is top 230px of container */
+  /* Fox should be positioned so only top ~40-50px (ears) is visible */
+  height: 400px;
+  width: 380px; /* Slightly increased width for better match */
+  max-width: 380px;
+  object-fit: contain;
+  object-position: center top; /* Align fox's top with container */
+  /* Position fox so only the very top ears are visible */
+  /* Move down so only ears peek out from bottom edge */
+  transform: translateY(225px); /* Final position - only very top ears visible */
+  /* Complex animation: appears from bottom, goes up, then down a little, then right ear shakes */
+  animation: foxAppear 1.2s ease-out, foxShake 2s ease-in-out 1.2s infinite;
+  transform-origin: center top;
+}
+
+/* Main animation: fox appears from bottom to top, then settles down */
+@keyframes foxAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(280px) scale(0.9); /* Start from bottom (hidden) */
+  }
+  40% {
+    opacity: 0.8;
+    transform: translateY(200px) scale(1.0); /* Rise up - more visible */
+  }
+  60% {
+    opacity: 0.95;
+    transform: translateY(215px) scale(1.0); /* Slightly above final position */
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(230px) scale(1.0); /* Go down a little */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(225px) scale(1); /* Final position - only ears visible */
+  }
+}
+
+/* Continuous shake animation for right ear (subtle horizontal shake) */
+@keyframes foxShake {
+  0%, 100% {
+    transform: translateY(225px) translateX(0) rotate(0deg);
+  }
+  10% {
+    transform: translateY(225px) translateX(1px) rotate(0.5deg);
+  }
+  20% {
+    transform: translateY(225px) translateX(-1px) rotate(-0.5deg);
+  }
+  30% {
+    transform: translateY(225px) translateX(0.8px) rotate(0.4deg);
+  }
+  40% {
+    transform: translateY(225px) translateX(-0.8px) rotate(-0.4deg);
+  }
+  50% {
+    transform: translateY(225px) translateX(0.5px) rotate(0.2deg);
+  }
+  60% {
+    transform: translateY(225px) translateX(-0.5px) rotate(-0.2deg);
+  }
+  70% {
+    transform: translateY(225px) translateX(0.3px) rotate(0.1deg);
+  }
+  80% {
+    transform: translateY(225px) translateX(-0.3px) rotate(-0.1deg);
+  }
+  90% {
+    transform: translateY(225px) translateX(0.2px) rotate(0.05deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .metamask-modal-content {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .metamask-login-modal {
+    padding: 32px 24px;
+    min-height: auto;
+  }
+
+  .metamask-login-modal__logo-text {
+    font-size: 28px;
+  }
+}

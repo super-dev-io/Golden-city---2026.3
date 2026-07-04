@@ -1,0 +1,103 @@
+{
+  "name": "goldencity",
+  "version": "0.1.77",
+  "private": true,
+  "dependencies": {
+    "@metamask/logo": "github:metamask/logo",
+    "@react-three/drei": "^9.75.0",
+    "@react-three/fiber": "^8.13.3",
+    "@rive-app/react-canvas": "^4.25.1",
+    "@sendgrid/mail": "^8.1.3",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@walletconnect/web3-provider": "^1.7.8",
+    "axios": "^1.13.2",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.8.3",
+    "chart.js": "^4.3.0",
+    "chartjs-plugin-annotation": "^3.0.1",
+    "cloudinary": "^2.1.0",
+    "compression": "^1.8.1",
+    "concurrently": "^8.2.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "ethers": "^5.6.9",
+    "express": "^4.22.1",
+    "express-fileupload": "^1.5.0",
+    "express-rate-limit": "^8.2.1",
+    "express-validator": "^7.3.1",
+    "firebase": "^11.7.1",
+    "framer-motion": "^12.9.4",
+    "helmet": "^8.1.0",
+    "joi": "^17.13.3",
+    "jotai": "^2.12.3",
+    "jsonwebtoken": "^9.0.3",
+    "leva": "^0.10.0",
+    "mongoose": "^8.21.0",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.12",
+    "paytmchecksum": "^1.5.1",
+    "react": "^18.3.1",
+    "react-app-rewired": "^2.2.1",
+    "react-chartjs-2": "^5.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-countdown-circle-timer": "^3.2.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.5.0",
+    "react-modal": "^3.16.3",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "react-share": "^5.2.2",
+    "reactstrap": "^9.1.1",
+    "request": "^2.88.2",
+    "sqlite3": "^5.1.7",
+    "three": "^0.176.0",
+    "uuid": "^13.0.0",
+    "validator": "^13.11.0",
+    "web-vitals": "^2.1.4",
+    "web3": "^4.16.0",
+    "winston": "^3.19.0"
+  },
+  "scripts": {
+    "start": "concurrently \"node backend/index.js\" \"react-app-rewired start\"",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "https-browserify": "^1.0.0",
+    "jest": "^27.5.1",
+    "nodemon": "^3.1.11",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.0"
+  }
+}
